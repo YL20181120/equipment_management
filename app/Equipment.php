@@ -2,12 +2,14 @@
 
 namespace App;
 
+use App\Traits\Date;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Equipment extends Model
 {
     use SoftDeletes;
+    use Date;
     protected $table = 'equipments';
 
     const CATEGORY = [
