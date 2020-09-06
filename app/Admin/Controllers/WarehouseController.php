@@ -57,7 +57,7 @@ class WarehouseController extends AdminController
         $tree->disableCreate();
 
         $tree->branch(function ($branch) {
-            $payload = "<i class='fa fa-building-o'></i>&nbsp;<strong>{$branch['name']}</strong>";
+            $payload = "<i class='fa fa-building-o'></i>&nbsp;<strong>[{$branch['id']}]{$branch['name']}</strong>";
             return $payload;
         });
 

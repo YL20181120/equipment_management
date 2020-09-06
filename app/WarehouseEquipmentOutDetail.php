@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Traits\Date;
 use App\Traits\HasEquipment;
 use App\Traits\HasUser;
 use App\Traits\HasWarehouse;
@@ -29,4 +30,5 @@ class WarehouseEquipmentOutDetail extends Model
     use HasEquipment;
     use HasWarehouse;
     use HasUser;
+    use Date;
 }

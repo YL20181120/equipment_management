@@ -15,6 +15,6 @@ class Equipment extends Model
     const CATEGORY = [
         '1' => '自动站',
         '2' => '探空站',
-        '0' => '其他'
+        '-1' => '其他'
     ];
 }

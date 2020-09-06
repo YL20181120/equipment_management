@@ -38,6 +38,7 @@ class CreateWarehouseEquipmentsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->index();
             $table->unsignedBigInteger('warehouse_id')->index();
+            $table->string('type')->index()->comment('入库类型');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -58,6 +59,7 @@ class CreateWarehouseEquipmentsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->index();
             $table->unsignedBigInteger('warehouse_id')->index();
+            $table->string('use_name')->nullable()->comment('使用单位');
             $table->timestamps();
             $table->softDeletes();
         });

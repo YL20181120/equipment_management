@@ -14,4 +14,5 @@ Route::group([
     $router->get('/', 'HomeController@index')->name('home');
     $router->resource('warehouses', WarehouseController::class);
     $router->resource('equipment', EquipmentController::class);
+    $router->resource('warehouse-equipments', WarehouseEquipmentController::class);
 });
