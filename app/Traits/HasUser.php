@@ -4,12 +4,12 @@
 namespace App\Traits;
 
 
-use App\User;
+use Encore\Admin\Auth\Database\Administrator;
 
 trait HasUser
 {
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Administrator::class, 'user_id');
     }
 }

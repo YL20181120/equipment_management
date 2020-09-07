@@ -100,5 +100,7 @@ return [
             'path' => storage_path('logs/laravel.log'),
         ],
     ],
-
+    'query' => [
+        'enabled' => env('APP_DEBUG', false)
+    ]
 ];

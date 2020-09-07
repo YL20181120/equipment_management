@@ -17,11 +17,9 @@ class WarehouseEquipment extends Model
         'stock',
     ];
 
+    protected $attributes = [
+        'stock' => 0
+    ];
     use HasWarehouse;
     use HasEquipment;
-
-    public function items()
-    {
-        return $this->hasMany(WarehouseEquipmentInDetail::class, 'warehouse_equipment_in_id');
-    }
 }

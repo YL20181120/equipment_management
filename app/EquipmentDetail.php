@@ -3,6 +3,8 @@
 namespace App;
 
 use App\Traits\Date;
+use App\Traits\HasEquipment;
+use App\Traits\HasWarehouse;
 use Illuminate\Database\Eloquent\Model;
 
 class EquipmentDetail extends Model
@@ -17,4 +19,6 @@ class EquipmentDetail extends Model
     protected $dates = [
         'check_date'
     ];
+
+    use HasEquipment, HasWarehouse;
 }

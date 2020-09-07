@@ -6,6 +6,7 @@ use App\Traits\Date;
 use App\Traits\HasUser;
 use App\Traits\HasWarehouse;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class WarehouseEquipmentOut extends Model
 {
@@ -17,9 +18,10 @@ class WarehouseEquipmentOut extends Model
     use HasWarehouse;
     use HasUser;
     use Date;
+    use SoftDeletes;
 
     public function items()
     {
-        return $this->hasMany(WarehouseEquipmentOut::class, 'warehouse_equipment_out_id');
+        return $this->hasMany(WarehouseEquipmentOutDetail::class, 'warehouse_equipment_out_id');
     }
 }

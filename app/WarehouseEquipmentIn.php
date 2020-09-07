@@ -6,6 +6,7 @@ use App\Traits\Date;
 use App\Traits\HasUser;
 use App\Traits\HasWarehouse;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class WarehouseEquipmentIn extends Model
 {
@@ -17,9 +18,15 @@ class WarehouseEquipmentIn extends Model
     use HasWarehouse;
     use HasUser;
     use Date;
+    use SoftDeletes;
     const TYPE_OPTIONS = [
-        '1' => '自购',
-        '2' => '调拨',
-        '-1' => '其他'
+        '自购' => '自购',
+        '调拨' => '调拨',
+        '其他' => '其他'
     ];
+
+    public function items()
+    {
+        return $this->hasMany(WarehouseEquipmentInDetail::class, 'warehouse_equipment_in_id');
+    }
 }
