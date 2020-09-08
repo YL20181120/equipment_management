@@ -48,6 +48,16 @@ class WarehouseEquipmentInDetail extends Model
         static::created(function (self $detail) {
             $warehouseEquipment = WarehouseEquipment::firstOrCreate(['warehouse_id' => $detail->warehouse_id, 'equipment_id' => $detail->equipment_id]);
             $warehouseEquipment->increment('stock', $detail->stock_in);
+
+            // 按设备数量创建设备明细
+            for ($i = 1; $i <= $detail->stock_in; $i++) {
+                EquipmentDetail::create([
+                    'equipment_id' => $detail->equipment_id,
+                    'warehouse_id' => $detail->warehouse_id,
+                    'price' => $detail->equipment->price,
+                    'check_date' => $detail->check_date,
+                ]);
+            }
         });
     }
 }

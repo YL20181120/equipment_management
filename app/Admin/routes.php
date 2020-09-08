@@ -20,4 +20,6 @@ Route::group([
     $router->resource('warehouse-equipment-in-details', WarehouseEquipmentInDetailController::class);
     $router->resource('warehouse-equipment-outs', WarehouseEquipmentOutController::class);
     $router->resource('warehouse-equipment-out-details', WarehouseEquipmentOutDetailController::class);
+    $router->get('api/equipment/details', 'ApiController@equipment');
+    $router->get('api/warehouse/details', 'ApiController@warehouse');
 });

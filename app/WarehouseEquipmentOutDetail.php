@@ -18,7 +18,8 @@ class WarehouseEquipmentOutDetail extends Model
         'warehouse_equipment_out_id',
         'equipment_id',
         'stock_out',
-        'rest'
+        'rest',
+        'equipment_detail_id'
     ];
     protected $dates = [
         'check_date'
@@ -31,6 +32,11 @@ class WarehouseEquipmentOutDetail extends Model
     public function warehouseEquipmentOut()
     {
         return $this->belongsTo(WarehouseEquipmentOut::class, 'warehouse_equipment_out_id');
+    }
+
+    public function equipmentDetail()
+    {
+        return $this->belongsTo(EquipmentDetail::class, 'equipment_detail_id');
     }
 
     use HasEquipment;

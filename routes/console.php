@@ -18,6 +18,5 @@ Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->describe('Display an inspiring quote');
 Artisan::command('test', function () {
-    $mission = \App\DownloadMission::query()->first();
-    dispatch(new \App\Jobs\CreateDownloadZip($mission));
+
 })->describe('Display an inspiring quote');

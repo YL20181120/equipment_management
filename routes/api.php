@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,8 +11,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('api')->group(function () {
-    Route::get('config', 'ConfigController@index');
-    Route::post('upload', 'UploadController@upload');
-    Route::post('information', 'InformationController@store');
-});
+//Route::middleware('api')->group(function () {
+//    Route::get('config', 'ConfigController@index');
+//    Route::post('upload', 'UploadController@upload');
+//    Route::post('information', 'InformationController@store');
+//});

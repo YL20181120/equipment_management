@@ -25,14 +25,15 @@ class EquipmentController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new Equipment());
-
+        $grid->model()->latest();
         $grid->column('id', 'ID');
         $grid->column('code', '设备编码');
         $grid->column('name', '设备名称');
-        $grid->column('category', '分类');
+        $grid->column('category', '分类')->using(Equipment::CATEGORY);
         $grid->column('model', '规格型号');
         $grid->column('price', '设备单价');
         $grid->column('unit', '计量单位');
+        $grid->column('manufacturer', '厂家');
         $grid->column('remark', '备注');
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
@@ -53,10 +54,11 @@ class EquipmentController extends AdminController
         $show->field('id', 'ID');
         $show->field('code', '设备编码');
         $show->field('name', '设备名称');
-        $show->field('category', '分类');
+        $show->field('category', '分类')->using(Equipment::CATEGORY);
         $show->field('model', '规格型号');
         $show->field('price', '设备单价');
         $show->field('unit', '计量单位');
+        $show->field('manufacturer', '厂家');
         $show->field('remark', '备注');
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
@@ -84,6 +86,7 @@ class EquipmentController extends AdminController
         $form->text('model', '规格型号');
         $form->currency('price', '设备单价');
         $form->text('unit', '计量单位')->help('台/件/把...');
+        $form->text('manufacturer', '厂家');
         $form->textarea('remark', '备注');
 
         return $form;
