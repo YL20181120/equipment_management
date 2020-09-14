@@ -71,6 +71,8 @@ class WarehouseEquipmentOutDetail extends Model
             /** @var Model $warehouseEquipment */
             $warehouseEquipment = WarehouseEquipment::firstOrCreate(['warehouse_id' => $detail->warehouse_id, 'equipment_id' => $detail->equipment_id]);
             $warehouseEquipment->decrement('stock', $detail->stock_out);
+            $equipment = EquipmentDetail::query()->find($detail->equipment_detail_id);
+            $equipment->update(['is_in_stock' => 0]);
         });
     }
 }

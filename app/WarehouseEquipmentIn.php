@@ -22,11 +22,17 @@ class WarehouseEquipmentIn extends Model
     const TYPE_OPTIONS = [
         '自购' => '自购',
         '调拨' => '调拨',
-        '其他' => '其他'
+        '归还' => '归还',
+        '其他' => '其他',
     ];
 
     public function items()
     {
         return $this->hasMany(WarehouseEquipmentInDetail::class, 'warehouse_equipment_in_id');
+    }
+
+    public function equipment()
+    {
+        return $this->hasMany(EquipmentDetail::class, 'equipment_in_id');
     }
 }

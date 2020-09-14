@@ -98,8 +98,8 @@ class WarehouseEquipmentOutController extends AdminController
 
         $form->hidden('user_id')->value(Admin::user()->id);
         $form->select('warehouse_id', '仓库')->options(Warehouse::selectOptions())
-            ->required()
-            ->load('equipment_id', admin_url('api/warehouse/details'));
+            ->required();
+//            ->load('equipment_id', admin_url('api/warehouse/details'));
         $form->text('use_name', '使用单位')->required();
         $form->divider();
 
@@ -109,8 +109,9 @@ class WarehouseEquipmentOutController extends AdminController
                     'id' => $item->id,
                     'label' => sprintf("%s-%s-%s", $item->name, $item->code, $item->model)
                 ];
-            })->pluck('label', 'id'));
-//                ->load('equipment_detail_id', admin_url('api/equipment/details'));
+            })
+                ->pluck('label', 'id'))
+                ->load('equipment_detail_id', admin_url('api/equipment/details'));
             $form->select('equipment_detail_id', '设备');
             $form->hidden('stock_out', '出库数量')->value(1);
         })->required();

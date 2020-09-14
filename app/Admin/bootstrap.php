@@ -25,5 +25,6 @@ Encore\Admin\Form::forget(['map', 'editor']);
 
 Admin::navbar(function (\Encore\Admin\Widgets\Navbar $navbar) {
     $navbar->left(Nav\Link::make('新设备入库', 'warehouse-equipment-ins/create', 'fa-plus'));
+    $navbar->left(Nav\Link::make('归还入库', 'warehouse-equipment-ins/back', 'fa-plus'));
     $navbar->left(Nav\Link::make('出库', 'warehouse-equipment-outs/create', 'fa-sign-out'));
 });
